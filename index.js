@@ -16,7 +16,7 @@ function addToCart(item) {
    itemPrice: Math.floor(Math.random() * 100)
  });
  
- cart.unshift(newItem);
+ cart.push(newItem);
  
  return `${item} has been added to your cart.`;
 }
@@ -54,9 +54,12 @@ function total() {
 
 function removeFromCart(item) {
   // write your code here
-  for (i = 0; i < cart.length; i++) {
+  for (var i = 0; i < cart.length; i++) {
     if (cart[i].itemName === item) {
-      
+      cart.splice(i, 1);
+      return cart;
+    } else {
+      return "That item is not in your cart.";
     }
   }
 }
